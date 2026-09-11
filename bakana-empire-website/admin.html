@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Adicionar Imóveis | Bakana Empire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .admin-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    .admin-box h2 { margin-bottom: 1rem; }
+    .admin-box pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1.2rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .admin-box code { color: #e8c547; }
+    .step { margin-bottom: 1.5rem; }
+    .step-num {
+      display: inline-flex;
+      width: 28px; height: 28px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+    .warning {
+      background: #fef3c7;
+      border-left: 4px solid var(--gold);
+      padding: 1rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo"><span class="logo-crown">👑</span><span>Bakana Empire</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Site</a>
+        <a href="admin.html" class="active">Admin</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-primary">← Voltar ao site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section" style="padding-top: 7rem;">
+    <div class="container" style="max-width: 860px;">
+      <h1 class="section-title">Admin — Gestão de Imóveis</h1>
+      <p class="section-subtitle" style="margin-left:0;">
+        Forma simples e rápida de adicionar ou editar listagens sem precisar de base de dados.
+      </p>
+
+      <div class="warning">
+        <strong>Nota:</strong> Esta página é apenas para o administrador (você / William). 
+        Não a publique no menu público do site. O ficheiro principal a editar é 
+        <code>js/properties-data.js</code>.
+      </div>
+
+      <div class="admin-box">
+        <h2>Como adicionar um novo imóvel</h2>
+
+        <div class="step">
+          <span class="step-num">1</span>
+          Abra o ficheiro <strong>js/properties-data.js</strong> no editor de código (VS Code, etc.).
+        </div>
+
+        <div class="step">
+          <span class="step-num">2</span>
+          Copie um objecto existente (por exemplo o último de arrendamento ou de venda).
+        </div>
+
+        <div class="step">
+          <span class="step-num">3</span>
+          Cole-o no final da lista <code>PROPERTIES</code> (antes do <code>];</code>) e altere os campos:
+        </div>
+
+        <pre>{
+  id: "rent-09",                    // ID único (obrigatório)
+  type: "rent",                     // "rent" ou "sale"
+  category: "vivenda",              // apartamento | vivenda | escritorio | comercial | penthouse | terreno
+  title_pt: "Vivenda T3 — Exemplo",
+  title_en: "T3 Villa — Example",
+  location: "Benfica, Luanda",
+  municipality: "Benfica",          // usado no filtro
+  price: 750000,                    // número sem pontos
+  priceLabel_pt: "/ mês",
+  priceLabel_en: "/ month",
+  bedrooms: "T3",
+  status: "disponivel",             // disponivel | novo | usado | reservado
+  modality_pt: "Semestral",
+  modality_en: "Semester",
+  description_pt: "Descrição completa em português...",
+  description_en: "Full description in English...",
+  features: ["Piscina", "Garagem", "Semestral"],
+  images: [
+    "https://url-da-foto-1.jpg",
+    "https://url-da-foto-2.jpg",
+    "https://url-da-foto-3.jpg"
+  ],
+  whatsappMsg_pt: "Olá, tenho interesse na Vivenda T3 em Benfica",
+  whatsappMsg_en: "Hello, I'm interested in the T3 Villa in Benfica",
+  featured: false                   // true = aparece na página inicial
+}</pre>
+
+        <div class="step">
+          <span class="step-num">4</span>
+          Guarde o ficheiro e faça o deploy (push para GitHub / Cloudflare Pages). 
+          O imóvel aparece automaticamente nas páginas de Arrendamento ou Venda.
+        </div>
+      </div>
+
+      <div class="admin-box">
+        <h2>Campos importantes</h2>
+        <ul style="line-height: 1.9; color: var(--text-muted);">
+          <li><strong>id</strong> — deve ser único (ex: rent-09, sale-04)</li>
+          <li><strong>type</strong> — controla se aparece em Arrendamento ou Venda</li>
+          <li><strong>municipality</strong> — valor exacto usado no filtro (Patriota, Benfica, Talatona…)</li>
+          <li><strong>images</strong> — array de URLs. A primeira é a foto principal. Pode adicionar quantas quiser (carrossel automático).</li>
+          <li><strong>featured: true</strong> — mostra o imóvel na secção “Destaque” da página inicial</li>
+        </ul>
+      </div>
+
+      <div class="admin-box">
+        <h2>Onde colocar as fotos</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          Pasta de imagens do site:
+        </p>
+        <pre>assets/
+  properties/   ← fotos dos imóveis (arrendamento &amp; venda)
+  village/      ← fotos do Bakana Village
+  about/        ← foto do William, diploma, etc.
+  brand/        ← logo, ícones da marca</pre>
+        <p style="color: var(--text-muted); margin: 1rem 0;">
+          Exemplo — imóvel com ID <code>rent-01</code>:
+        </p>
+        <pre>"images": [
+  "assets/properties/rent-01-1.jpg",
+  "assets/properties/rent-01-2.jpg",
+  "assets/properties/rent-01-3.jpg"
+]</pre>
+        <p style="color: var(--text-muted); margin-top: 1rem;">
+          Também pode usar links externos (Unsplash, ImgBB, Cloudinary, Google Drive público) enquanto não tiver as fotos finais.
+        </p>
+      </div>
+
+      <div class="admin-box">
+        <h2>Páginas que usam estes dados</h2>
+        <ul style="line-height: 1.9;">
+          <li><a href="index.html">Home</a> — imóveis com <code>featured: true</code></li>
+          <li><a href="rentals.html">Arrendamento</a> — todos com <code>type: "rent"</code> + filtros</li>
+          <li><a href="sales.html">Venda</a> — todos com <code>type: "sale"</code> + filtros</li>
+          <li><a href="property.html?id=rent-01">Página de detalhe</a> — <code>property.html?id=ID</code></li>
+        </ul>
+      </div>
+
+      <p style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" class="btn btn-primary">← Voltar ao site</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
