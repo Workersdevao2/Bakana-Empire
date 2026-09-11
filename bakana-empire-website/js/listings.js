@@ -163,7 +163,9 @@
       if (countEl) {
         const lang = getLang();
         countEl.textContent = lang === 'pt'
-          ? `${filtered.length} imóvel${filtered.length !== 1 ? 'eis' : ''} encontrado${filtered.length !== 1 ? 's' : ''}`
+          ? (filtered.length === 1
+            ? '1 imóvel encontrado'
+            : `${filtered.length} imóveis encontrados`)
           : `${filtered.length} propert${filtered.length !== 1 ? 'ies' : 'y'} found`;
       }
     }
