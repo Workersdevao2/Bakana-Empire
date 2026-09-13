@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imóvel | Bakana Empire</title>
+  <meta name="description" content="Detalhes do imóvel — Bakana Empire, William Canadá.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo"><span>Bakana Empire</span></a>
+      <nav class="nav-links">
+        <a href="index.html" data-lang="pt">Início</a>
+        <a href="index.html" data-lang="en">Home</a>
+        <a href="about.html" data-lang="pt">Sobre</a>
+        <a href="about.html" data-lang="en">About</a>
+        <a href="rentals.html" data-lang="pt">Arrendamento</a>
+        <a href="rentals.html" data-lang="en">Rentals</a>
+        <a href="sales.html" data-lang="pt">Venda</a>
+        <a href="sales.html" data-lang="en">Sales</a>
+        <a href="village.html" data-lang="pt">Bakana Village</a>
+        <a href="village.html" data-lang="en">Bakana Village</a>
+        <a href="contact.html" data-lang="pt">Contacto</a>
+        <a href="contact.html" data-lang="en">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section detail-page">
+    <div class="container">
+      <div id="property-detail">
+        <!-- Filled by JS -->
+        <div style="text-align:center; padding: 4rem 1rem; color: var(--text-muted);">
+          <p data-lang="pt">A carregar imóvel...</p>
+          <p data-lang="en">Loading property...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <footer class="footer footer-compact">
+    <div class="container">
+      <div class="footer-compact-inner">
+        <a href="index.html" class="logo"><span>Bakana Empire</span></a>
+        <div class="footer-compact-links">
+          <a href="rentals.html" data-lang="pt">Arrendamento</a>
+          <a href="rentals.html" data-lang="en">Rentals</a>
+          <a href="sales.html" data-lang="pt">Venda</a>
+          <a href="sales.html" data-lang="en">Sales</a>
+          <a href="village.html">Village</a>
+          <a href="contact.html" data-lang="pt">Contacto</a>
+          <a href="contact.html" data-lang="en">Contact</a>
+          <a href="https://wa.me/244935110735">935 110 735</a>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/___bakana/" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/william.canada.16" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/244935110735" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom footer-bottom-compact">
+        <p>© 2026 Bakana Empire · William Canadá</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/244935110735" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="js/properties-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/listings.js"></script>
+</body>
+</html>
