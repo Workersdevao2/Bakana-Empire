@@ -1867,3 +1867,86 @@ html[lang="en"] .btn[data-lang="en"] {
     min-height: 380px;
   }
 }
+
+
+/* ========== About portrait (full-bleed photo + name) ========== */
+.about-portrait {
+  padding-top: var(--header-h);
+  background: var(--charcoal);
+}
+
+.about-portrait-media {
+  position: relative;
+  width: 100%;
+  height: min(88vh, 820px);
+  min-height: 420px;
+  overflow: hidden;
+  border-bottom: var(--line-w) solid var(--line);
+}
+
+.about-portrait-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.about-portrait-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2.5rem 1.5rem 3rem;
+  background: linear-gradient(180deg, transparent 40%, rgba(28,28,28,0.55) 75%, rgba(28,28,28,0.82) 100%);
+  pointer-events: none;
+}
+
+.about-portrait-name {
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.75rem);
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 1px 18px rgba(0,0,0,0.35);
+}
+
+.about-journey {
+  padding-top: 3.5rem;
+}
+
+.about-journey-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-journey-inner .section-title {
+  margin-bottom: 1.25rem;
+}
+
+.about-journey-inner p {
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.about-journey-inner strong {
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .about-portrait-media {
+    height: min(78vh, 640px);
+    min-height: 360px;
+  }
+  .about-portrait-overlay {
+    padding: 1.5rem 1rem 2rem;
+  }
+  .about-journey {
+    padding-top: 2.5rem;
+  }
+}
